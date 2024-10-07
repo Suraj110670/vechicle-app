@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Vehicle</title>
+</head>
+<body>
+    <h1>Edit Vehicle</h1>
+    <form action="/edit/<%= vehicle._id %>?_method=PUT" method="POST">
+        <label for="make">Make:</label>
+        <input type="text" name="make" value="<%= vehicle.make %>" required>
+        <br>
+        <label for="model">Model:</label>
+        <input type="text" name="model" value="<%= vehicle.model %>" required>
+        <br>
+        <label for="fuelEconomy">Fuel Economy:</label>
+        <input type="text" name="fuelEconomy" value="<%= vehicle.fuelEconomy %>" required>
+        <br>
+        <label for="bodyType">Body Type:</label>
+        <input type="text" name="bodyType" value="<%= vehicle.bodyType %>" required>
+        <br>
+        <button type="submit">Update Vehicle</button>
+    </form>
+    <a href="/">Back to list</a>
+</body>
+</html>

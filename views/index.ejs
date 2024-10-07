@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Vehicle List</h1>
+    <a href="/add">Add Vehicle</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Fuel Economy</th>
+                <th>Body Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% vehicles.forEach(vehicle => { %>
+                <tr>
+                    <td><%= vehicle.make %></td>
+                    <td><%= vehicle.model %></td>
+                    <td><%= vehicle.fuelEconomy %></td>
+                    <td><%= vehicle.bodyType %></td>
+                    <td>
+                        <a href="/edit/<%= vehicle._id %>">Edit</a>
+                        <form action="/delete/<%= vehicle._id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
